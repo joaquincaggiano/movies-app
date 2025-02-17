@@ -1,5 +1,4 @@
-import { Movie } from "@/infrastructure/interfaces/movie.interface";
-import { View, Text, Pressable, Image } from "react-native";
+import { Pressable, Image } from "react-native";
 
 interface Props {
   id: string;
