@@ -5,7 +5,7 @@ import { MovieMapper } from "@/infrastructure/mappers/movie.mapper";
 
 export const getMovieByIdAction = async (id: number): Promise<CompleteMovie> => {
   try {
-    const { data } = await movieApi.get<MovieDetail>(`/movie/${id}`);
+    const { data } = await movieApi.get<MovieDetail>(`/${id}`);
 
     const completeMovie = MovieMapper.movieDBToCompleteMovie(data);
 
