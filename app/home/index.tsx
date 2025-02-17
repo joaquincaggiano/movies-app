@@ -28,22 +28,30 @@ const HomeScreen = () => {
         <View>
           <Text className="text-3xl font-bold px-4 mb-2">Movies App</Text>
           {/* Now Playing */}
-          <MainSlideShow movies={nowPlayingQuery.data!} />
+          <MainSlideShow
+            movies={nowPlayingQuery.data!}
+          />
         </View>
 
         {/* Popular */}
-        <MovieHorizontalList title="Populares" movies={popularQuery.data!} />
+        <MovieHorizontalList
+          title="Populares"
+          movies={popularQuery.data!.pages.flat()}
+          loadNextPage={popularQuery.fetchNextPage}
+        />
 
         {/* Top Rated */}
         <MovieHorizontalList
           title="Mejor Calificadas"
-          movies={topRatedQuery.data!}
+          movies={topRatedQuery.data!.pages.flat()}
+          loadNextPage={topRatedQuery.fetchNextPage}
         />
 
         {/* Upcoming */}
         <MovieHorizontalList
           title="Próximos Estrenos"
-          movies={upcomingQuery.data!}
+          movies={upcomingQuery.data!.pages.flat()}
+          loadNextPage={upcomingQuery.fetchNextPage}
         />
       </View>
     </ScrollView>

@@ -6,5 +6,9 @@ export interface Movie {
   rating: number;
   poster: string;
   backdrop: string;
+}
 
+export interface Options {
+  page?: number;
+  limit?: number;
 }
