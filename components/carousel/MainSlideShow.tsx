@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { Movie } from "@/infrastructure/interfaces/movie.interface";
-import { View, Text, useWindowDimensions } from "react-native";
+import { View, useWindowDimensions } from "react-native";
 import Carousel, { ICarouselInstance } from "react-native-reanimated-carousel";
+import MoviePoster from "./MoviePoster";
 
 interface Props {
   movies: Movie[];
@@ -9,18 +10,20 @@ interface Props {
 
 const MainSlideShow = ({ movies }: Props) => {
   const ref = useRef<ICarouselInstance>(null);
-  const width = useWindowDimensions().width;
+  const widthWindow = useWindowDimensions().width;
 
   return (
-    <View className="h-[250px] w-full ">
+    <View className="h-[250px] w-full">
       <Carousel
         ref={ref}
         data={movies}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
-        width={width}
+        renderItem={({ item }) => (
+          <MoviePoster id={item.id} poster={item.poster} />
+        )}
+        width={200}
         height={350}
         style={{
-          width,
+          width: widthWindow,
           height: 350,
           justifyContent: "center",
           alignItems: "center",
