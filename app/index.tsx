@@ -1,7 +1,7 @@
-import { Redirect } from 'expo-router'
+import { Redirect } from "expo-router";
 
 const MoviesApp = () => {
-  return <Redirect href="/home" />
-}
+  return <Redirect href="/home" />;
+};
 
-export default MoviesApp
+export default MoviesApp;
