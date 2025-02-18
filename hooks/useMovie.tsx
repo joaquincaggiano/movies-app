@@ -1,3 +1,4 @@
+import { getCastByMovieIdAction } from "@/core/actions/cast/get-cast-by-movie0id.action";
 import { getMovieByIdAction } from "@/core/actions/movie/get-movie-by-id.action";
 import { useQuery } from "@tanstack/react-query";
 
@@ -8,5 +9,10 @@ export const useMovie = (id: number) => {
     staleTime: 1000 * 60 * 60 * 24,
   });
 
-  return {movieQuery};
+  const castQuery = useQuery({
+    queryKey: ["cast", `${id}`],
+    queryFn: () => getCastByMovieIdAction(id),
+  });
+
+  return { movieQuery, castQuery };
 };
