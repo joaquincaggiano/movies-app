@@ -1,8 +1,9 @@
+import MovieDescription from "@/components/movie/MovieDescription";
 import MovieHeader from "@/components/movie/MovieHeader";
 import Loading from "@/components/ui/Loading";
 import { useMovie } from "@/hooks/useMovie";
 import { useLocalSearchParams } from "expo-router";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 
 const MovieDetailScreen = () => {
   const { id } = useLocalSearchParams();
@@ -16,11 +17,14 @@ const MovieDetailScreen = () => {
 
   return (
     <ScrollView>
-      <MovieHeader
-        poster={movieQuery.data?.poster || "hajs"}
-        originalTitle={movieQuery.data?.originalTitle || ""}
-        title={movieQuery.data?.title || ""}
-      />
+      <View className="pb-10">
+        <MovieHeader
+          poster={movieQuery.data.poster}
+          title={movieQuery.data.title}
+        />
+
+        <MovieDescription movie={movieQuery.data} />
+      </View>
     </ScrollView>
   );
 };

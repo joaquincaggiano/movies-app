@@ -12,11 +12,10 @@ import { LinearGradient } from "expo-linear-gradient";
 
 interface Props {
   poster: string;
-  originalTitle: string;
   title: string;
 }
 
-const MovieHeader = ({ poster, originalTitle, title }: Props) => {
+const MovieHeader = ({ poster, title }: Props) => {
   const { height: screenHeight } = useWindowDimensions();
   return (
     <>
@@ -64,8 +63,8 @@ const MovieHeader = ({ poster, originalTitle, title }: Props) => {
       </View>
 
       <View className="px-5 mt-5">
-        <Text className="text-sm font-normal">{originalTitle}</Text>
-        <Text className="text-2xl font-semibold">{title}</Text>
+        {/* <Text className="text-sm font-normal">{originalTitle}</Text> */}
+        <Text className="text-2xl font-bold">{title}</Text>
       </View>
     </>
   );
